@@ -1,0 +1,68 @@
+versions:
+  androidx:
+    annotation: "1.5.0-alpha02"
+    compose: "1.3.0-alpha03"
+    compose.compiler: "1.3.0"
+    core: "1.9.0-beta01"
+    navigation: "2.5.1"
+  kotlin: "1.7.10"
+  kotlin.coroutines: "1.6.4"
+  kotlinpoet: "1.12.0"
+  ksp: "1.7.10-1.0.6"
+  plugins:
+    age: "1.0.0-SNAPSHOT"
+    android: "7.3.0-rc01"
+    spotless: "6.9.1"
+
+repositories:
+  google:
+    url: https://maven.google.com
+  gradlePluginPortal:
+    url: https://plugins.gradle.org/m2
+  mavenCentral:
+    url: https://repo1.maven.org/maven2
+
+plugins:
+  gradlePluginPortal:
+    com.diffplug.spotless: ${versions.plugins.spotless}
+    org.jetbrains.kotlin.android: ${versions.kotlin}
+    org.jetbrains.kotlin.jvm: ${versions.kotlin}
+  noUpdates:
+    com.android.library: ${versions.plugins.android}
+    me.omico.age.project: ${versions.plugins.age}
+    me.omico.age.spotless: ${versions.plugins.age}
+
+dependencies:
+  google:
+    androidx.annotation:
+      annotation:
+        alias: androidx.annotation
+        version: ${versions.androidx.annotation}
+    androidx.compose.runtime:
+      runtime:
+        alias: androidx.compose.runtime
+        version: ${versions.androidx.compose}
+    androidx.core:
+      core-ktx:
+        alias: androidx.core.ktx
+        version: ${versions.androidx.core}
+    androidx.navigation:
+      navigation-compose:
+        alias: androidx.navigation.compose
+        version: ${versions.androidx.navigation}
+      navigation-runtime-ktx:
+        alias: androidx.navigation.runtime.ktx
+        version: ${versions.androidx.navigation}
+  mavenCentral:
+    com.squareup:
+      kotlinpoet:
+        alias: kotlinpoet
+        version: ${versions.kotlinpoet}
+      kotlinpoet-ksp:
+        alias: kotlinpoet.ksp
+        version: ${versions.kotlinpoet}
+  noUpdates:
+    com.google.devtools.ksp:
+      symbol-processing-api:
+        alias: ksp.api
+        version: ${versions.ksp}
