@@ -32,9 +32,3 @@ dependencyResolutionManagement {
         spotless()
     }
 }
-
-buildCache {
-    local {
-        removeUnusedEntriesAfterDays = 1
-    }
-}

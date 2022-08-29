@@ -14,4 +14,10 @@ plugins {
     id("initialization.gradm")
 }
 
+buildCache {
+    local {
+        removeUnusedEntriesAfterDays = 1
+    }
+}
+
 include(":convention")

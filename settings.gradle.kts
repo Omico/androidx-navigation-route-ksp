@@ -29,5 +29,11 @@ gradleEnterprise {
     }
 }
 
+buildCache {
+    local {
+        removeUnusedEntriesAfterDays = 1
+    }
+}
+
 include("annotation")
 include("symbol-processing")
