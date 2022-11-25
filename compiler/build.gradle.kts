@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    compileOnly(projects.annotation)
+    implementation(projects.annotation)
 }
 
 dependencies {

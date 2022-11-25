@@ -18,7 +18,7 @@ pluginManagement {
 
 plugins {
     id("initialization")
-    id("com.gradle.enterprise") version "3.11.1"
+    id("com.gradle.enterprise") version "3.11.4"
 }
 
 gradleEnterprise {
@@ -30,4 +30,6 @@ gradleEnterprise {
 }
 
 include("annotation")
-include("symbol-processing")
+include("compiler")
+
+include("example")

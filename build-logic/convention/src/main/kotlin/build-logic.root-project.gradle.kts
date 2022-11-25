@@ -35,4 +35,4 @@ val wrapper: Wrapper by tasks.named<Wrapper>("wrapper") {
 val Project.androidNamespace
     get() = path.replace(":", ".")
         .replace("-", ".")
-        .let { "me.omico.androidx.navigation$it" }
+        .let { "me.omico.lux.androidx.navigation$it" }
