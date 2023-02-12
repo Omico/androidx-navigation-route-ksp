@@ -1,40 +1,47 @@
 @file:Suppress("UnstableApiUsage")
 
-import me.omico.age.dsl.ageSnapshots
-import me.omico.age.dsl.gradmSnapshots
-import me.omico.age.dsl.spotless
-import org.gradle.api.internal.FeaturePreviews
+import me.omico.age.dsl.sonatypeSnapshots
 
-plugins {
-    id("me.omico.age.settings.initialization")
-}
-
-FeaturePreviews.Feature.values()
-    .filter { it.isActive }
-    .forEach { enableFeaturePreview(it.name) }
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     repositories {
-        ageSnapshots()
+        sonatypeSnapshots(
+            groupRegexList = setOf(
+                "me.omico.*",
+            ),
+        )
+        gradlePluginPortal {
+            content {
+                includeGroupByRegex("com.diffplug.spotless.*")
+                includeGroupByRegex("com.gradle.*")
+                includeGroupByRegex("gradle.plugin.*")
+                includeGroupByRegex("org.gradle.*")
+                includeGroupByRegex("org.jetbrains.kotlin.*")
+            }
+        }
         google()
-        gradmSnapshots()
         mavenCentral()
-        spotless()
     }
 }
 
 dependencyResolutionManagement {
     repositories {
-        ageSnapshots()
+        sonatypeSnapshots(
+            groupRegexList = setOf(
+                "me.omico.*",
+            ),
+        )
+        gradlePluginPortal {
+            content {
+                includeGroupByRegex("com.diffplug.spotless.*")
+                includeGroupByRegex("com.gradle.*")
+                includeGroupByRegex("gradle.plugin.*")
+                includeGroupByRegex("org.gradle.*")
+                includeGroupByRegex("org.jetbrains.kotlin.*")
+            }
+        }
         google()
-        gradmSnapshots()
         mavenCentral()
-        spotless()
-    }
-}
-
-buildCache {
-    local {
-        removeUnusedEntriesAfterDays = 1
     }
 }

@@ -1,38 +1,38 @@
 versions:
+  age: "1.0.0-SNAPSHOT"
   androidx:
     activity: "1.6.0-alpha05"
-    annotation: "1.5.0"
-    compose: "1.3.0-alpha03"
-    compose.compiler: "1.3.0"
-    core: "1.9.0-beta01"
-    navigation: "2.5.1"
-  kotlin: "1.7.21"
+    annotation: "1.6.0-rc01"
+    compose: "1.4.0-beta01"
+    compose.compiler: "1.4.0"
+    core: "1.10.0-alpha02"
+    navigation: "2.6.0-alpha05"
+  kotlin: "1.8.0"
   kotlin.coroutines: "1.6.4"
   kotlinpoet: "1.12.0"
-  ksp: "1.7.21-1.0.8"
+  ksp: "1.8.0-1.0.9"
   plugins:
-    age: "1.0.0-SNAPSHOT"
-    android: "7.2.2"
-    spotless: "6.12.0"
+    android: "7.3.1"
+    spotless: "6.15.0"
 
 repositories:
   google:
-    url: https://maven.google.com
+    url: "https://maven.google.com"
   gradlePluginPortal:
-    url: https://plugins.gradle.org/m2
+    url: "https://plugins.gradle.org/m2"
   mavenCentral:
-    url: https://repo1.maven.org/maven2
+    url: "https://repo1.maven.org/maven2"
 
 plugins:
   gradlePluginPortal:
     com.diffplug.spotless: ${versions.plugins.spotless}
-    org.jetbrains.kotlin.android: ${versions.kotlin}
-    org.jetbrains.kotlin.jvm: ${versions.kotlin}
+    com.google.devtools.ksp: ${versions.ksp}
   noUpdates:
     com.android.library: ${versions.plugins.android}
-    com.google.devtools.ksp: ${versions.ksp}
-    me.omico.age.project: ${versions.plugins.age}
-    me.omico.age.spotless: ${versions.plugins.age}
+    me.omico.age.project: ${versions.age}
+    me.omico.age.spotless: ${versions.age}
+    org.jetbrains.kotlin.android: ${versions.kotlin}
+    org.jetbrains.kotlin.jvm: ${versions.kotlin}
 
 dependencies:
   google:
@@ -59,6 +59,10 @@ dependencies:
         alias: androidx.navigation.runtime.ktx
         version: ${versions.androidx.navigation}
   mavenCentral:
+    com.android.tools.build:
+      gradle:
+        alias: androidGradlePlugin
+        version: ${versions.plugins.android}
     com.squareup:
       kotlinpoet:
         alias: kotlinpoet
@@ -66,8 +70,16 @@ dependencies:
       kotlinpoet-ksp:
         alias: kotlinpoet.ksp
         version: ${versions.kotlinpoet}
+    org.jetbrains.kotlin:
+      kotlin-gradle-plugin:
+        alias: kotlinGradlePlugin
+        version: ${versions.kotlin}
   noUpdates:
     com.google.devtools.ksp:
       symbol-processing-api:
         alias: ksp.api
         version: ${versions.ksp}
+    me.omico.age:
+      age-dsl:
+        alias: me.omico.age.dsl
+        version: ${versions.age}

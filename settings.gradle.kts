@@ -3,8 +3,8 @@
 rootProject.name = "androidx-navigation-route-ksp"
 
 pluginManagement {
-    includeBuild("build-logic")
     includeBuild("build-logic/initialization")
+    includeBuild("build-logic/gradm")
     repositories {
         gradlePluginPortal {
             content {
@@ -18,7 +18,8 @@ pluginManagement {
 
 plugins {
     id("initialization")
-    id("com.gradle.enterprise") version "3.11.4"
+    id("gradm")
+    id("com.gradle.enterprise") version "3.12.3"
 }
 
 gradleEnterprise {
@@ -28,6 +29,8 @@ gradleEnterprise {
         publishAlwaysIf(!gradle.startParameter.isOffline)
     }
 }
+
+includeBuild("build-logic")
 
 include("annotation")
 include("compiler")
